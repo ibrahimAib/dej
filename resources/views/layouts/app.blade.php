@@ -18,6 +18,29 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        pre {
+        white-space: pre-wrap;
+        line-height: 80%;
+        overflow: hidden;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 13px
+}
+        .A4{
+            margin: 0px;
+            min-height: 1123px;
+            width: 794px;
+            /* border: solid 1px black; */
+        }
+        .fs-5 h6{
+            color: rgb(170, 170, 170);
+        }
+        .image img{
+            max-width: 100%;
+            height: auto;
+            margin-top: 5px
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -39,6 +62,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Add</a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -75,9 +105,19 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
+    <script>
+function printContent(el){
+    var restorepage = document.body.innerHTML;
+    var printcontent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printcontent;
+    window.print();
+    document.body.innerHTML = restorepage;
+}
+
+    </script>
 </body>
 </html>

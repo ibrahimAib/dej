@@ -38,18 +38,32 @@ class PageController extends Controller
     {
         $data = request();
         $img_path = request('img_path');
+        $ar = count($img_path);
+        $i = 0;
         foreach ($img_path as $da) {
             $img_path[] = $da->store('uplode', 'public');
         }
         $revers = array_reverse($img_path, true);
         foreach ($revers as $da) {
-            $re[] = $da;
+            if ($ar > $i) {
+                $re[] = $da;
+            }
+            $i++;
         }
-        // dd($re[1]);
+
+        for ($x = 12;; $x--) {
+            if ($x <= $ar) {
+                break;
+            }
+            $re[] = null;
+        }
+        // dd($re);
         Page::create([
             'name' => $data['name'],
+            'name_ar' => $data['name_ar'],
             'code' => $data['code'],
             'description' => $data['description'],
+            'description_ar' => $data['description_ar'],
             'img_path_1' => $re[0],
             'img_path_2' => $re[1],
             'img_path_3' => $re[2],

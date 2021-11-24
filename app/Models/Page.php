@@ -10,8 +10,10 @@ class Page extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'name_ar',
         'code',
         'description',
+        'description_ar',
         'img_path_1',
         'img_path_2',
         'img_path_3',
