@@ -41,23 +41,28 @@ class PageController extends Controller
         foreach ($img_path as $da) {
             $img_path[] = $da->store('uplode', 'public');
         }
-        // dd($img_path);
+        $revers = array_reverse($img_path, true);
+        foreach ($revers as $da) {
+            $re[] = $da;
+        }
+        // dd($re[1]);
         Page::create([
             'name' => $data['name'],
             'code' => $data['code'],
             'description' => $data['description'],
-            'img_path-1' => $img_path[0],
-            'img_path-2' => $img_path[1],
-            'img_path-3' => $img_path[2],
-            'img_path-4' => $img_path[3],
-            'img_path-5' => $img_path[4],
-            'img_path-6' => $img_path[5],
-            'img_path-7' => $img_path[6],
-            'img_path-8' => $img_path[7],
-            'img_path-9' => $img_path[8],
-            'img_path-10' => $img_path[9],
-            'img_path-11' => $img_path[10],
+            'img_path_1' => $re[0],
+            'img_path_2' => $re[1],
+            'img_path_3' => $re[2],
+            'img_path_4' => $re[3],
+            'img_path_5' => $re[4],
+            'img_path_6' => $re[5],
+            'img_path_7' => $re[6],
+            'img_path_8' => $re[7],
+            'img_path_9' => $re[8],
+            'img_path_10' => $re[9],
+            'img_path_11' => $re[10],
         ]);
+        return back();
     }
 
     /**
