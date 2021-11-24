@@ -18,6 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style media="print">
+        @page {
+         size: auto;
+         margin: 0;
+              }
+       </style>
     <style>
         pre {
         white-space: pre-wrap;
